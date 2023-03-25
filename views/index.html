@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>Request Header Parser</title>
+      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(function() {
+          $('form').submit(function(event) {
+            event.preventDefault();
+            $.get('/api/whoami', function(response) {
+              $('#result').text(JSON.stringify(response));
+            });
+          });
+        });
+      </script>
+   </head>
+
+   <body>
+      <div class="container">
+        <h2>Request Header Parser Microservice</h2>
+        <p>
+          HTTP headers are pieces of information that are sent along with each request and response in a web application. They provide important metadata about the request or response, such as the type of content being sent, the language of the content, and the software used to generate the content.
+        </p>
+        <p>
+          The Request Header Parser Microservice allows you to rapidly extract information from the headers of a request, such as the IP address, language, and software information. This data has multiple use cases, including:
+        </p>
+
+        <ul>
+          <li>Detection of bots or automated scripts that may be accessing your website</li>
+          <li>Filtering out spam or unwanted traffic from a website</li>
+          <li>Customizing the content of a website based on a user's language or geographic location</li>
+          <li>Analyzing traffic to a website to gain insights into user behavior</li>
+        </ul>
+
+        <form>
+          <label for="url-input">Enter a URL:</label>
+          <input id="url-input" type="text" name="url" placeholder="https://example.com">
+          <button type="submit">Submit</button>
+        </form>
+
+        <p id="result" class="code"></p>
+  
+      </div>
+   </body>
+
+</html>
